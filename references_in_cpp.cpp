@@ -58,7 +58,7 @@ int main()
 	//Here, fun function returns reference of global variable x. fun() is a reference of global variable of x. We are modifying global variable using fun().
 	cout << "Value of x before modification : " << x << endl;
 	fun() = 400;
-    cout << "Value of fun() reference : " << fun() << endl;
+    	cout << "Value of fun() reference : " << fun() << endl;
 	cout << "Value of x after modification : " << x << endl;
 	
     return 0;
