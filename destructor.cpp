@@ -20,7 +20,7 @@ class demo
 			//Destructor.
 			~demo()
 			{
-				cout << "Inside Destructor Constructor	->	Memory Deallocation\n";
+				cout << "Inside Destructor	->	Memory Deallocation\n";
 			}
 };
 
