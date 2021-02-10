@@ -5,7 +5,7 @@ using namespace std;
 //Base Class
 class parent
 {
-	//We can access any class member with any access specifier inside class. Access specifiers is for outsiders, not for the class members.
+	//We can access any class member inside class without considering access specifier. Access specifiers is for outsiders, not for the class members.
 	//Public access specifier - It can be accessed from anywhere in the program.
 	public :
 			//public characteristics.
