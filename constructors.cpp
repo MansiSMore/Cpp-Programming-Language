@@ -15,11 +15,14 @@ There are 4 types of constructor :
 /*
 If we don't specify any constructor, cpp will generate :
 	i) The default constructor is auto-generated if there is no user-declared constructor.
-	ii) The copy constructor is auto-generated if there is no user-declared move constructor or move assignment operator (because there are no 		move constructors or move assignment operators in C++03, this simplifies to "always" in C++03).
+	ii) The copy constructor is auto-generated if there is no user-declared move constructor or move assignment operator (because there are no
+	move constructors or move assignment operators in C++03, this simplifies to "always" in C++03).
 	iii) The copy assignment operator is auto-generated if there is no user-declared move constructor or move assignment operator.
 	iv) The destructor is auto-generated if there is no user-declared destructor.
-	v) The move constructor is auto-generated if there is no user-declared copy constructor, copy assignment operator or destructor, and if 	the generated move constructor is valid.
-	vi) The move assignment operator is auto-generated if there is no user-declared copy constructor, copy assignment operator or destructor, 		and if the generated move assignment operator is valid (e.g. if it wouldn't need to assign constant members).
+	v) The move constructor is auto-generated if there is no user-declared copy constructor, copy assignment operator or destructor, and if 
+	the generated move constructor is valid.
+	vi) The move assignment operator is auto-generated if there is no user-declared copy constructor, copy assignment operator or destructor, 
+	and if the generated move assignment operator is valid (e.g. if it wouldn't need to assign constant members).
 
 */
 
@@ -56,13 +59,15 @@ class demo
 			}
 			
 			// Move Constructor
-			//In move constructor, you have r-value reference. Move constructor moves the resources in the heap. Move constructor just makes the pointer of the declared object to point to the data of temporary object and nulls out the pointer of the temporary objects. Thus, move constructor prevents unnecessarily copying data in the memory.  
-    		demo(demo&& dobj)
-    		{
- 				//Here, dobj is temporary object.
-        		cout << "Inside Move Constructor dobj.j : " << dobj.j << endl;
-             	dobj.show();
-    		}
+			//In move constructor, you have r-value reference. Move constructor moves the resources in the heap. 
+			//Move constructor just makes the pointer of the declared object to point to the data of temporary object and nulls out 
+			//the pointer of the temporary objects. Thus, move constructor prevents unnecessarily copying data in the memory.  
+			demo(demo&& dobj)
+			{		
+				//Here, dobj is temporary object.
+				cout << "Inside Move Constructor dobj.j : " << dobj.j << endl;
+				dobj.show();
+			}
 			
 			void show()
 			{
@@ -88,7 +93,8 @@ int main()
 	//Move Constructor called.
 	demo d4 = move(d3);
 	
-	//Below statment will give you any garbage value for j variable(same for behaviours), as d4 is a pointer to temporary object, 			 characteristics of d4 is not set.
+	//Below statment will give you any garbage value for j variable(same for behaviours), as d4 is a pointer to temporary object, 
+	//characteristics of d4 is not set.
 	cout << "d4.j : " << d4.j << endl;
 	
 	//Below statment will give you the value which is same as the value given by d3 object for j variable, as we are calling move constructor it.
